@@ -6,9 +6,10 @@ import com.example.demo.security.User;
 import com.example.demo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/order")
@@ -23,9 +24,9 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(Order order, Principal principal) {
-        User user = (User) principal;
-        order.setCustomerId(user.getId());
+    public Order createOrder(@Valid @RequestBody Order order, Authentication authentication) {
+        User user = (User) authentication.getPrincipal();
+        order.setUserId(user.getId());
         return orderService.createOrder(order);
     }
 

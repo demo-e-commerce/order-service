@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.config.logging;
 
 import org.slf4j.MDC;
 

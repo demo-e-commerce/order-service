@@ -5,7 +5,9 @@
 ## Order Service
 
 ## Set up guide
-    Install docker, docker compose
-    Run kafka:
+    1. Install docker, docker compose
+    2. Run kafka:
         Open terminal, cd to resources/kafka, run docker-compose up -d
-    
+    3. Install maven
+    4. Run the project:
+        mvn spring-boot:run

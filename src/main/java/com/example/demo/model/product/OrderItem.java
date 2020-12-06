@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Getter @Setter
 @Entity
@@ -13,22 +14,24 @@ import javax.persistence.*;
 public class OrderItem extends AbstractGeneratedIdAuditableTime {
 
     @Column(name = "code")
+    @NotBlank(message = "order item code is mandatory")
     private String code;
 
     @Column(name = "title")
+    @NotBlank(message = "order item title is mandatory")
     private String title;
 
     @Column(name = "description")
+    @NotBlank(message = "order item description is mandatory")
     private String description;
 
     @Column(name = "price")
+    @NotBlank(message = "order item price is mandatory")
     private Float price;
 
     @Column(name = "quantity")
+    @NotBlank(message = "order item quantity is mandatory")
     private Integer quantity;
-
-    @Column(name = "price_unit")
-    private String priceUnit;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
