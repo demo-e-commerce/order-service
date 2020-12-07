@@ -1,4 +1,4 @@
-## Order Service
+# Order Service
 
 ### Set up guide
 To use create order api, set the property 'app.process-order-endpoint' in application.properties
