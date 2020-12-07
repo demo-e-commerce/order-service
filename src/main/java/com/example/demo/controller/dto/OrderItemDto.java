@@ -1,12 +1,10 @@
 package com.example.demo.controller.dto;
 
 import com.example.demo.model.order.OrderItem;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter @Setter
-@Builder
+@Builder @NoArgsConstructor @AllArgsConstructor
 public class OrderItemDto {
     private String code;
 

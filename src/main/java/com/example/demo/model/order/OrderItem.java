@@ -3,9 +3,7 @@ package com.example.demo.model.order;
 import com.example.demo.controller.dto.OrderItemDto;
 import com.example.demo.model.core.AbstractGeneratedIdAuditableTime;
 import com.example.demo.model.order.Order;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -14,7 +12,8 @@ import javax.validation.constraints.NotNull;
 @Getter @Setter
 @Entity
 @Table(name = "order_item")
-@NoArgsConstructor
+@NoArgsConstructor @AllArgsConstructor
+@Builder
 public class OrderItem extends AbstractGeneratedIdAuditableTime {
 
     @Column(name = "code")
