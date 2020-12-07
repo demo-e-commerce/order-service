@@ -3,11 +3,10 @@ package com.example.demo.model.order;
 import com.example.demo.model.core.AbstractGeneratedIdAuditableTime;
 import com.example.demo.model.product.OrderItem;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
@@ -15,6 +14,8 @@ import java.util.List;
 @Entity
 @Builder
 @Table(name = "user_order")
+@NoArgsConstructor
+@AllArgsConstructor
 public class Order extends AbstractGeneratedIdAuditableTime {
 
     @Column(name = "user_id")
@@ -25,6 +26,7 @@ public class Order extends AbstractGeneratedIdAuditableTime {
     private OrderStatus status = OrderStatus.NEW;
 
     @NotEmpty(message = "order should have at least 1 items")
+    @Valid
     @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, orphanRemoval = true)
     List<OrderItem> orderItems;
 }
