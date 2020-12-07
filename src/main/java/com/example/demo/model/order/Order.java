@@ -1,7 +1,6 @@
 package com.example.demo.model.order;
 
 import com.example.demo.model.core.AbstractGeneratedIdAuditableTime;
-import com.example.demo.model.product.OrderItem;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
