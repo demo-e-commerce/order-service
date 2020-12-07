@@ -1,5 +1,5 @@
 package com.example.demo.service.impl;
-import com.example.demo.dto.UserEvent;
+import com.example.demo.dto.AuditEvent;
 import com.example.demo.model.order.Order;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.service.AuditService;
@@ -28,7 +28,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Order createOrder(Order order) {
         // call product service
-        auditService.audit(UserEvent.builder().userId(order.getUserId()).evenName("create_order").eventDate(Instant.now()).build());
+        auditService.audit(AuditEvent.builder().userId(order.getUserId()).evenName("create_order").eventDate(Instant.now()).build());
         return orderRepository.save(order);
     }
 }

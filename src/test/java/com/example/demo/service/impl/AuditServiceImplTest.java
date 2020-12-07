@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.config.Setting;
-import com.example.demo.dto.UserEvent;
+import com.example.demo.dto.AuditEvent;
 import com.example.demo.service.AuditService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,8 +49,8 @@ public class AuditServiceImplTest {
         when(objectMapper.writeValueAsString(any())).thenReturn("");
         when(setting.getUserEventAuditTopic()).thenReturn("");
 
-        UserEvent userEvent = UserEvent.builder().userId("").eventDate(Instant.now()).build();
-        auditService.audit(userEvent);
+        AuditEvent auditEvent = AuditEvent.builder().userId("").eventDate(Instant.now()).build();
+        auditService.audit(auditEvent);
 
         Mockito.verify(kafkaTemplate).send(anyString(), anyString());
     }
@@ -63,8 +63,8 @@ public class AuditServiceImplTest {
         doThrow(new RuntimeException(EXCEPTION_MESSAGE)).when(kafkaTemplate).send(anyString(), anyString());
 
 
-        UserEvent userEvent = UserEvent.builder().userId("").eventDate(Instant.now()).build();
-        auditService.audit(userEvent);
+        AuditEvent auditEvent = AuditEvent.builder().userId("").eventDate(Instant.now()).build();
+        auditService.audit(auditEvent);
 
         Mockito.verify(kafkaTemplate).send(anyString(), anyString());
         // TODO verify log error

@@ -9,7 +9,7 @@ import java.time.Instant;
 
 @Getter @Setter
 @Builder
-public class UserEvent implements Serializable {
+public class AuditEvent implements Serializable {
     private String userId;
     private String evenName;
     private Instant eventDate;

@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.UserEvent;
+import com.example.demo.dto.AuditEvent;
 
 public interface AuditService {
-    void audit(UserEvent userEvent);
+    void audit(AuditEvent auditEvent);
 }
