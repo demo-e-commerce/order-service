@@ -39,6 +39,7 @@ Steps to set up:
 
 ## APIs
 - Create order:
+    
     curl --location --request POST 'http://localhost:6060/api/v1/order' \
     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcklkIjoiZXJ3cjM0NTM0ZmdlZnJld3IiLCJpYXQiOjE1MTYyMzkwMjJ9.yy6RNHz1oL24eJlYCeU7Z3fzAIa_vrHLi9zLpj3clLE' \
     --header 'Content-Type: application/json' \
@@ -54,7 +55,9 @@ Steps to set up:
             }
         ]
     }'
+    
 - Get order list
+    
     curl --location --request GET 'http://localhost:6060/api/v1/order?page=0&size=2&sort=desc&sortBy=createdDate' \
     --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcklkIjoiZXJ3cjM0NTM0ZmdlZnJld3IiLCJpYXQiOjE1MTYyMzkwMjJ9.yy6RNHz1oL24eJlYCeU7Z3fzAIa_vrHLi9zLpj3clLE' \
     --data-raw ''
