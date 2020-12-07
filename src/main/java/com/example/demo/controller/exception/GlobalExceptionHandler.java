@@ -44,6 +44,12 @@ public class GlobalExceptionHandler {
         return buildErrorResponse(HttpStatus.BAD_REQUEST, ex);
     }
 
+    @ExceptionHandler(value = {CannotCreateOrderException.class})
+    public ResponseEntity<ApiErrorDto> handleCannotCreateOrderException(CannotCreateOrderException ex, WebRequest request) {
+        LOGGER.error(request.getContextPath(), ex);
+        return buildErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY, ex);
+    }
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(

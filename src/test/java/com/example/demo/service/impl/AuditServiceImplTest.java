@@ -1,6 +1,6 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.config.Setting;
+import com.example.demo.config.core.Setting;
 import com.example.demo.dto.AuditEvent;
 import com.example.demo.service.AuditService;
 import com.fasterxml.jackson.core.JsonProcessingException;

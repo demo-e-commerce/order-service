@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.controller.exception.CannotCreateOrderException;
 import com.example.demo.model.order.Order;
 import com.example.demo.repository.OrderRepository;
 import com.example.demo.service.AuditService;
@@ -36,7 +37,7 @@ public class OrderServiceImplTest {
     AuditService auditService;
 
     @Test
-    public void testCreateOrder_Success() {
+    public void testCreateOrder_Success() throws CannotCreateOrderException {
         Order order = Order.builder().userId("").build();
         orderService.createOrder(order);
         Mockito.verify(orderRepository).save(order);

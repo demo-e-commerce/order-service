@@ -1,5 +1,6 @@
 package com.example.demo.model.order;
 
+import com.example.demo.controller.dto.OrderItemDto;
 import com.example.demo.model.core.AbstractGeneratedIdAuditableTime;
 import com.example.demo.model.order.Order;
 import lombok.Getter;
@@ -37,4 +38,11 @@ public class OrderItem extends AbstractGeneratedIdAuditableTime {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    public OrderItem(OrderItemDto orderItemDto) {
+        this.code = orderItemDto.getCode();
+        this.title = orderItemDto.getTitle();
+        this.description = orderItemDto.getDescription();
+        this.price = orderItemDto.getPrice();
+        this.quantity = orderItemDto.getQuantity();
+    }
 }

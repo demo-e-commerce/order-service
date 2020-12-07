@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.controller.dto.RequestPagingDto;
+import com.example.demo.controller.exception.CannotCreateOrderException;
 import com.example.demo.model.order.Order;
 import com.example.demo.security.User;
 import com.example.demo.service.OrderService;
@@ -24,7 +25,7 @@ public class OrderController {
     }
 
     @PostMapping
-    public Order createOrder(@Valid @RequestBody Order order, Authentication authentication) {
+    public Order createOrder(@Valid @RequestBody Order order, Authentication authentication) throws CannotCreateOrderException {
         User user = (User) authentication.getPrincipal();
         order.setUserId(user.getId());
         return orderService.createOrder(order);
