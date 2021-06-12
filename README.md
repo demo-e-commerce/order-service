@@ -6,12 +6,11 @@ To use create order api, set the property 'app.process-order-endpoint' in applic
 Steps to set up:
 
     1. Install docker, docker compose
-    2. Run development kafka:
-        Open terminal, cd to resources/kafka, run docker-compose up -d
+    2. Run development kafka, hazelcast: docker-compose up
     3. Install maven
     4. mvn clean install
     5. Run the project:
-        mvn spring-boot:run
+        mvn spring-boot:run -Dspring-boot.run.profiles=local
 
 ### Not Completed Items
 - Verify token
