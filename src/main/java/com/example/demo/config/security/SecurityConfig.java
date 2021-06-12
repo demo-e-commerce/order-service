@@ -34,6 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .and()
             .authorizeRequests()
             .antMatchers("/actuator/*").permitAll()
+            .antMatchers("/api/test/**").permitAll()
             .antMatchers("/**").authenticated()
         .and()
             .apply(new TokenSecurityConfigurer(tokenAuthProvider));
